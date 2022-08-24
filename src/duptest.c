@@ -20,7 +20,7 @@ int	pipex(char *args[], char *envp[], t_child child)
 		close(ends[0]);
 		dup2(ends[1], 1);
 		child = parsecmd(args[2], envp, child);
-		//childprocess(envp, child);
+		childprocess(envp, child);
 		//	write(1, "child1 process\n", 15);
 		return (0);
 	}
