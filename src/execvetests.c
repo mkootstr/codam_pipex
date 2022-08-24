@@ -36,7 +36,6 @@ char 	*ft_append(char *line, char *buf, size_t l)
 	return (new_line);
 }
 
-
 static char		**ft_fill(char **split, char const *s, char c)
 {
 	size_t len;
