@@ -267,6 +267,7 @@ int main(int argc, char *argv[], char *envp[])
 	
 	args = parse(argv, argc);
 	char *path = findpath(envp, args[0]);
+	printf("%s\n", path);
 	execve(path, args, envp);
 	return(0);
 }
