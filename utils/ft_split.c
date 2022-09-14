@@ -6,12 +6,11 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/15 10:55:09 by mkootstr      #+#    #+#                 */
-/*   Updated: 2021/02/02 16:05:31 by marlou        ########   odam.nl         */
+/*   Updated: 2022/09/14 14:06:22 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "utils.h"
 
 static char		**ft_fill(char **split, char const *s, char c)
 {

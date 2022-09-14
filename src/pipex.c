@@ -5,89 +5,60 @@
 /*                                                     +:+                    */
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/08/25 17:51:40 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/08/25 17:52:16 by mkootstr      ########   odam.nl         */
+/*   Created: 2022/09/14 14:21:51 by mkootstr      #+#    #+#                 */
+/*   Updated: 2022/09/14 17:14:39 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct	s_child
+#include "pipex.h"
+
+void	childprcs(t_child child, char **argv, int *ends, char **envp)
 {
-	char *cmd;
-	char *path;
-	int   num;
-}				t_child;
-
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <sys/wait.h>
-#include <stdlib.h>
-
-
-//struct nog in prototype van deze
-void	pipex(char *args[], char *envp[], t_child child)
-{
-	int	ends[2];
-	int status;
-	pid_t	child1;
-	pid_t	child2;
-	int		fdin;
-	int		fdout;
-
-	pipe(ends);
-	child1 = fork();
-	//if (child1 < 0)
-	//	return (perrorS);
-	if (child1 == 0)
-	{
-//=========================dit moet in child functie=====================================================		
-		fdin = open("infile.txt", O_RDWR);
-		char *args1[]= {"grep", "wow", NULL};
-	//	child = parsecmd(args[2], envp, child);
-	//	childprocess(envp, child);
-		write(1, "child1 process\n", 15);
-		dup2(fdin, 0);
-		dup2(ends[1], 1);
-		close(ends[0]);
-		close(fdin);
-		execve("/usr/bin/grep", args1, envp);
-		exit(EXIT_FAILURE);
-//======================================================================================================
-	}
-	waitpid(child1, &status, 0);
-	child2 = fork();
-	//if (child2 < 0)
-	//	return (perror);
-	if (child2 == 0)
-	{
-//=========================dit moet in child functie=====================================================
-		fdout = open("outfile.txt", O_RDWR);
-		char *args2[]= {"wc", "-l", NULL};
-//		child = parsecmd(args[3], envp, child);
-	//	childprocess(envp, child);
-		write(1, "child2 process\n", 15);
-		dup2(fdout, 1);
-		dup2(ends[0], 0);
-		close(ends[1]);
-		close(fdout);
-		execve("/usr/bin/wc", args2, envp);
-//==============================================================================
-		exit(EXIT_FAILURE);
-	}
-	close(ends[0]);
-	close(ends[1]);
-	waitpid(child1, &status, 0);
-	waitpid(child2, &status, 0);
+	int	end;
+	
+	end = 0;
+	if (child.num == 0)
+		end = 1;
+	if (child.num == 1)
+		end = 0;
+	dup2(child.fd, child.num);
+	dup2(ends[end], end);
+	close(ends[child.num]);
+	close(child.fd);
+	execve(child.path, child.cmd, envp);
+	exit(EXIT_FAILURE);
 }
 
-int main(int argc, char *argv[], char *envp[])
+void	pipex(char *argv[], char *envp[], t_child child1, t_child child2)
 {
-	t_child child;
-	
-	child.cmd = NULL;
-	child.path = NULL;
-	child.num = 0;
+	int ends[2];
+	int status;
 
-	pipex(argv, envp);
+	pipe(ends);
+	child1.prcs = fork();
+	//errorcheck
+	if (child1.prcs == 0)
+		childprcs(child1, argv, ends, envp);
+	waitpid(child1.prcs, &status, 0);
+	child2.prcs = fork();
+	//errorcheck
+	if (child2.prcs == 0)
+		childprcs(child2, argv, ends, envp);
+	close(ends[0]);
+	close(ends[1]);
+	waitpid(child1.prcs, &status, 0);
+	waitpid(child2.prcs, &status, 0);
+	//freeall(child1, child2);
+}
+
+
+int	main(int argc, char *argv[], char *envp[])
+{
+	t_child child1;
+	t_child child2;
+
+	child1 = parse(argv[1], argv[2], envp, child1, 0);
+	child2 = parse(argv[4], argv[3], envp, child2, 1);
+	pipex(argv, envp, child1, child2);
 	return(0);
 }

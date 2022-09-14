@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlen.c                                        :+:    :+:            */
+/*   ft_calloc.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: marlou <marlou@student.codam.nl>             +#+                     */
+/*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/30 14:26:09 by marlou        #+#    #+#                 */
-/*   Updated: 2022/07/31 16:54:04 by mkootstr      ########   odam.nl         */
+/*   Created: 2022/09/14 15:13:43 by mkootstr      #+#    #+#                 */
+/*   Updated: 2022/09/14 15:14:02 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "utils.h"
 
-size_t	ft_strlen(const char *str)
+void	*ft_calloc(size_t nitems, size_t size)
 {
-	size_t i;
+	char	*ptr;
+	size_t	a;
+	size_t	i;
 
+	a = nitems * size;
 	i = 0;
-	if (!str)
-		return(0);
-	while (str[i] != '\0')
+	ptr = malloc(a);
+	if (ptr != NULL)
 	{
-		i++;
+		while (i < a)
+		{
+			ptr[i] = 0;
+			i++;
+		}
 	}
-	return (i);
+	return (ptr);
 }
