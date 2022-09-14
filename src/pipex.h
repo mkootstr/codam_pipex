@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 15:15:14 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/14 21:24:42 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/14 21:29:10 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ pid_t	ft_waitpid(pid_t pid, int *status, int option);
 void	ft_pipe(int *p);
 pid_t	ft_fork(void);
 void	fatal(const char *msg)
-__attribute__((noreturn));
+		__attribute__((noreturn));
 int		ft_close(int fd);
 int		ft_dup2(int fd1, int fd2);
 

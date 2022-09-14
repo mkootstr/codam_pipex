@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/02 12:51:22 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/14 14:11:13 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/14 17:42:00 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_join(char *s3, char const *s1, char const *s2)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;

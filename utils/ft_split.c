@@ -6,17 +6,17 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/15 10:55:09 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/14 14:06:22 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/14 17:41:06 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-static char		**ft_fill(char **split, char const *s, char c)
+static char	**ft_fill(char **split, char const *s, char c)
 {
-	size_t len;
-	size_t i;
-	size_t n;
+	size_t	len;
+	size_t	i;
+	size_t	n;
 
 	len = 0;
 	i = 0;
@@ -40,7 +40,7 @@ static char		**ft_fill(char **split, char const *s, char c)
 	return (split);
 }
 
-static char		**ft_free(char **split, size_t n)
+static char	**ft_free(char **split, size_t n)
 {
 	while (n > 1)
 	{
@@ -51,11 +51,11 @@ static char		**ft_free(char **split, size_t n)
 	return (NULL);
 }
 
-static char		**ft_wrdlen(char **split, char const *s, char c)
+static char	**ft_wrdlen(char **split, char const *s, char c)
 {
-	size_t wrdlen;
-	size_t i;
-	size_t n;
+	size_t	wrdlen;
+	size_t	i;
+	size_t	n;
 
 	n = 0;
 	i = 0;
@@ -97,7 +97,7 @@ static size_t	ft_wrdcnt(char const *s, char c)
 	return (wrdcnt);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**split;
 	size_t	wrdcnt;

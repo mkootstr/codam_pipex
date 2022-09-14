@@ -6,14 +6,14 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 13:01:25 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/14 15:16:58 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/14 17:39:55 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 #include <stdio.h>
 
-char *ft_append(char *allocstr1, char *s2)
+char	*ft_append(char *allocstr1, char *s2)
 {
 	char	*s3;
 	int		i;

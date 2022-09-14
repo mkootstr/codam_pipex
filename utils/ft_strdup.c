@@ -6,13 +6,13 @@
 /*   By: marlou <marlou@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/06 13:21:18 by marlou        #+#    #+#                 */
-/*   Updated: 2022/09/14 14:11:23 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/14 17:41:44 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-char			*ft_strdup(const char *src)
+char	*ft_strdup(const char *src)
 {
 	char	*dest;
 	size_t	i;
