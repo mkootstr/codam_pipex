@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:23:31 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/14 21:23:47 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/15 09:01:24 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	fatal(const char *msg)
 {
-	write(1, "Fatal: ", 6);
+	write(1, "Fatal: ", 7);
 	if (msg != NULL)
 		perror(msg);
 	exit(1);
@@ -40,7 +40,7 @@ pid_t	ft_waitpid(pid_t pid, int *status, int option)
 {
 	pid_t	rv;
 
-	rv = waitpid(pid, status, 0);
+	rv = waitpid(pid, status, option);
 	if (rv == -1)
 		fatal("waitpid error");
 	return (rv);

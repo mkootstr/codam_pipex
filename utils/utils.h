@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:05:11 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/14 15:16:02 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/15 08:43:24 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 size_t	ft_strlen(const char *str);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 char	*ft_append(char *allocstr1, char *s2);
 char	*ft_strdup(const char *src);

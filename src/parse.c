@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:16:46 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/14 21:18:31 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/15 08:35:50 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ char	*findpath(char *cmd, char *envp[])
 
 t_child	parse(char *file, char *command, char **envp, t_child child)
 {
+	child.path = NULL;
 	if (child.num == 0)
 		child.fd = open(file, O_RDWR);
 	else if (child.num == 1)
