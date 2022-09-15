@@ -6,7 +6,7 @@
 #    By: mkootstr <mkootstr@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/14 13:59:06 by mkootstr      #+#    #+#                  #
-#    Updated: 2022/09/15 10:56:16 by mkootstr      ########   odam.nl          #
+#    Updated: 2022/09/15 12:25:06 by mkootstr      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ all: $(NAME)
 
 
 $(NAME): $(OBJ)
-	gcc $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
