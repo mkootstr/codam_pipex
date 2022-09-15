@@ -6,11 +6,10 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:16:46 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/15 08:35:50 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/15 11:34:15 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "pipex.h"
 
 void	freesplitpath(char **splitpath)
@@ -46,13 +45,10 @@ char	*checkaccess(char **splitpath, char *cmd)
 	if (fd >= 0)
 	{
 		path = ft_strdup(splitpath[i - 1]);
-		close(fd);
+		ft_close(fd);
 	}
 	else if (fd < 0)
-	{
-		perror(cmd);
-		exit(EXIT_FAILURE);
-	}
+		fatal(cmd);
 	return (path);
 }
 
@@ -101,10 +97,7 @@ t_child	parse(char *file, char *command, char **envp, t_child child)
 	else if (child.num == 1)
 		child.fd = open(file, O_RDWR | O_CREAT);
 	if (child.fd < 0)
-	{
-		perror(file);
-		exit(EXIT_FAILURE);
-	}
+		fatal(file);
 	child.cmd = ft_split(command, ' ');
 	if (child.cmd != NULL)
 		child.path = findpath(child.cmd[0], envp);
