@@ -6,7 +6,7 @@
 #    By: mkootstr <mkootstr@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/09/14 13:59:06 by mkootstr      #+#    #+#                  #
-#    Updated: 2022/09/15 12:25:06 by mkootstr      ########   odam.nl          #
+#    Updated: 2022/09/19 20:03:21 by mkootstr      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ UTILS_FILES = 	utils/ft_append.c\
 				utils/ft_split.c\
 				utils/ft_strdup.c\
 				utils/ft_strlen.c\
-				utils/ft_strnstr.c
+				utils/ft_strnstr.c\
+				utils/ft_putstr_fd.c
 
 CFLAGS = -Wall -Wextra -Werror
 HEADER_FILES = src/pipex.h utils/utils.h

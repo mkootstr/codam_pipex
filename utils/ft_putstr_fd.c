@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   utils.h                                            :+:    :+:            */
+/*   ft_putstr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/09/14 14:05:11 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/19 19:22:57 by mkootstr      ########   odam.nl         */
+/*   Created: 2020/11/30 15:05:29 by mkootstr      #+#    #+#                 */
+/*   Updated: 2022/09/19 19:54:52 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
-# include <unistd.h>
-# include <stdlib.h>
+#include "utils.h"
 
-size_t	ft_strlen(const char *str);
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-char	**ft_split(char const *s, char c);
-char	*ft_append(char *allocstr1, char *s2);
-char	*ft_strdup(const char *src);
-void	*ft_calloc(size_t nitems, size_t size);
-void	ft_putstr_fd(char *s, int fd);
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
 
-#endif
+	i = 0;
+	if (s)
+	{
+		while (s[i] != '\0')
+		{
+			write(fd, &s[i], 1);
+			i++;
+		}
+	}
+}

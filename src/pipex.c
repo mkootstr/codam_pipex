@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:21:51 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/15 09:00:45 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/19 19:52:43 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,16 @@ int	main(int argc, char *argv[], char *envp[])
 	t_child	child2;
 
 	if (argc != 5)
-		fatal("Wrong number of arguments");
+	{
+		write(2, "Fatal: Wrong number of arguments\n", 33);
+		exit(1);
+	}
 	child1.num = 0;
 	child2.num = 1;
 	child1 = parse(argv[1], argv[2], envp, child1);
 	child2 = parse(argv[4], argv[3], envp, child2);
+	if (child1.error == -1 || child2.error == -1)
+		exit(1);
 	pipex(envp, child1, child2);
 	ft_close(child1.fd);
 	ft_close(child2.fd);
