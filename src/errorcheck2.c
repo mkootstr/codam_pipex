@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 20:44:25 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/19 20:27:36 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/19 21:19:13 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	cmdnotfound(char *cmd, int error)
 	{
 		write(2, "Fatal: ", 7);
 		ft_putstr_fd(cmd, 2);
-		write(2, ": Command Not Found\n", 20);
+		write(2, ": command not found\n", 20);
 	}
 	error = -1;
 	return (error);
