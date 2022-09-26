@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:21:51 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/26 18:53:30 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/09/26 19:22:33 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	pipex(char *envp[], t_child child1, t_child child2)
 	freechild(child1);
 	freechild(child2);
 }
+
+//if path = NULL command not found
 
 int	main(int argc, char *argv[], char *envp[])
 {
