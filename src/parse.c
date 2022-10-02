@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:16:46 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/26 18:47:00 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/10/02 14:56:17 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ t_child	findpath(char *cmd, char *envp[], t_child child)
 		i++;
 	if (envp[i] != NULL)
 		child = specpath(envp[i], cmd, child);
+	else
+		child.error = cmdnotfound(cmd, child.error);
 	return (child);
 }
 

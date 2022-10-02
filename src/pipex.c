@@ -6,13 +6,12 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:21:51 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/26 19:22:33 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/10/02 14:54:57 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-//functie schrijven voor 0, 1 of 127
 void	childprcs(t_child child, int *ends, char **envp)
 {
 	int	end;
@@ -37,25 +36,24 @@ void	pipex(char *envp[], t_child child1, t_child child2)
 
 	ft_pipe(ends);
 	child1.prcs = ft_fork();
-	if (child1.error == -1 && child1.prcs == 0)
+	if (child1.error != 0 && child1.prcs == 0)
 		exit(0);
 	if (child1.prcs == 0)
 		childprcs(child1, ends, envp);
 	child2.prcs = ft_fork();
-	if (child2.error == -1) //what about 127?
-		exit(1);
+	if (child2.error != 0 && child2.prcs == 0)
+		exit(0);
 	if (child2.prcs == 0)
 		childprcs(child2, ends, envp);
 	ft_close(ends[0]);
 	ft_close(ends[1]);
 	ft_waitpid(child1.prcs, &status, 0);
 	ft_waitpid(child2.prcs, &status, 0);
-	ft_exit(child1, child2); //deze functie nog schrijven met 127
+	ft_exit(child2);
+	ft_exit(child1);
 	freechild(child1);
 	freechild(child2);
 }
-
-//if path = NULL command not found
 
 int	main(int argc, char *argv[], char *envp[])
 {
@@ -64,7 +62,7 @@ int	main(int argc, char *argv[], char *envp[])
 
 	if (argc != 5)
 	{
-		write(2, "Fatal: Wrong number of arguments\n", 33);
+		write(2, "Pipex: Wrong number of arguments\n", 33);
 		exit(1);
 	}
 	child1.num = 0;

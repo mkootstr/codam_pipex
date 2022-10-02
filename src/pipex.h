@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/08/18 15:15:14 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/09/19 20:33:31 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/10/02 14:28:14 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ int		pfatal(const char *msg, int error);
 int		ft_close(int fd);
 int		ft_dup2(int fd1, int fd2);
 int		cmdnotfound(char *cmd, int error);
+void	ft_exit(t_child child);
 
 #endif
