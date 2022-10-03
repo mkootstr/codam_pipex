@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 20:44:25 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/10/02 14:54:35 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/10/03 20:11:03 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	ft_exit(t_child child)
 
 int	pfatal(const char *msg, int error)
 {
-	if (error != -1)
+	if (error == 0)
 	{
-		write(1, "Pipex: ", 7);
+		write(2, "Pipex: ", 7);
 		if (msg != NULL)
 			perror(msg);
 	}

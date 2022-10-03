@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:21:51 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/10/02 14:54:57 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/10/03 20:08:33 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	pipex(char *envp[], t_child child1, t_child child2)
 	ft_waitpid(child1.prcs, &status, 0);
 	ft_waitpid(child2.prcs, &status, 0);
 	ft_exit(child2);
-	ft_exit(child1);
 	freechild(child1);
 	freechild(child2);
 }
@@ -62,7 +61,7 @@ int	main(int argc, char *argv[], char *envp[])
 
 	if (argc != 5)
 	{
-		write(2, "Pipex: Wrong number of arguments\n", 33);
+		ft_putstr_fd("Pipex: Wrong number of arguments\n", 2);
 		exit(1);
 	}
 	child1.num = 0;

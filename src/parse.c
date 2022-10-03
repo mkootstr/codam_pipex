@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:16:46 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/10/02 14:56:17 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/10/03 20:08:53 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_child	findpath(char *cmd, char *envp[], t_child child)
 
 	i = 0;
 	child.path = NULL;
-	while (envp[i] != NULL && ft_strnstr(envp[i], "PATH", 6) == NULL)
+	while (envp[i] != NULL && ft_strnstr(envp[i], "PATH", 4) == NULL)
 		i++;
 	if (envp[i] != NULL)
 		child = specpath(envp[i], cmd, child);

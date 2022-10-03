@@ -6,7 +6,7 @@
 /*   By: mkootstr <mkootstr@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/09/14 14:23:31 by mkootstr      #+#    #+#                 */
-/*   Updated: 2022/10/02 14:54:14 by mkootstr      ########   odam.nl         */
+/*   Updated: 2022/10/03 20:09:36 by mkootstr      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	fatal(const char *msg)
 {
-	write(1, "Pipex: ", 7);
+	write(2, "Pipex: ", 7);
 	if (msg != NULL)
 		perror(msg);
 	exit(1);
